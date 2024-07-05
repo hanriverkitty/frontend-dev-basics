@@ -3,6 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+window.addEventListener('load', function(){
+	document
+		.getElementById("btn-delete")
+		.addEventListener('click',function(){
+			// 작동을 막아야 새로고침이 안된다.
+			event.preventDefault();
+			console.log('비밀번호 입력 다이얼로그 팝업 띄우기');
+		});
+});
+</script>
 </head>
 <body>
 	<h1>DOM(Document Object Model)</h1>
