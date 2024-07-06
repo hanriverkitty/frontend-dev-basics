@@ -31,28 +31,30 @@ var s = (function (a, b) {
 })(10, 20);
 console.log(s);
 
-
 // 가변파라미터
-var sum = function(){
-    var sum =0;
+var sum = function () {
+  var sum = 0;
 
-    // 구현1
-    for(var i =0;i<arguments>length;i++){
-        sum += arguments[i];
-    }
+  // 구현1
+  // for (var i = 0; i < arguments.length; i++) {
+  //   sum += arguments[i];
+  // }
 
-    // 구현2 : error
-    // arguments Array 아니다. 유사배열
-    // console.log(arguments instan)
-    // arguments.forEach(function(e){
-    //     sum += e;
-    // });
+  // 구현2: error
+  // arguments Array 아니다. 유사배열
+  // console.log(arguments instanceof Array);
 
-    // Array.prototype.forEach 직접 호출 + caller 바꾸기
-    Array.prototype.forEach.call(arguments, function(e){
-        sum+=  e;
-    });
-    return sum;
+  // arguments.forEach(function(e) {
+  //    sum += e;
+  // });
 
-console.log(sum(1,2))
-comsl
+  // Array.prototype.forEach 직접 호출 + caller 바꾸기
+  Array.prototype.forEach.call(arguments, function (e) {
+    sum += e;
+  });
+  return sum;
+};
+
+console.log(sum(1, 2));
+console.log(sum(1, 2, 3, 4, 5));
+console.log(sum(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));

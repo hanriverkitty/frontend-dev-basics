@@ -33,6 +33,7 @@ f.another = {
 };
 
 console.log(f);
+console.log(f.another);
 f.another.print();
 
 console.log("\n=== 확장: 기본 타입(primitive type)은 확장되지 않는다 ===");
