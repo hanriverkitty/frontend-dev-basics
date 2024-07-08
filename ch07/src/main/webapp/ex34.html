@@ -5,7 +5,7 @@
 <title>sample1</title>
 <link href='image-viewer.css' type='text/css' rel="stylesheet"/>
 <script type="text/javascript" src="./jquery/jquery-3.7.1.js"></script>
-<script type="text/javascript" src="image-viewer.js"></script>
+<!--<script type="text/javascript" src="image-viewer.js"></script>-->
 <script>
 var images = [ 
 	   "국화:Chrysanthemum.jpg", 
@@ -45,14 +45,24 @@ $(function(){
 	});
 })
 $(function(){
+	var slide = null;
 	$('#btn-slideshow').click(function(){
-		console.log($(this));
-		$(this).text("슬라이드쇼 중지");
-		slideShow();
-		if($(this).text()=="슬라이드쇼 중지"){
-			clearInterval(interval);
-			$(this).text("슬라이드쇼 시작");
-		}
+		
+		var idx = 0;
+		if(slide===null){
+			$(this).text("슬라이드쇼 중지");
+			slide = setInterval(function(){
+			if(idx==8){
+				idx=0;
+			}
+			imageinfo(idx);
+			idx++;
+		},1000);
+	}else{
+		$(this).text("슬라이드쇼 시작");
+		clearInterval(slide);
+		slide = null;
+	}
 	});
 })
 </script>
