@@ -17,42 +17,15 @@ var images = [
 	   "펭귄:Penguins.jpg", 
 	   "툴립:Tulips.jpg"
 	];
-var imageinfo = function(index){
-	var info = images[index].split(":");
-	$('.image-viewer div img')
-	.attr('src','images/'+info[1])
-	.attr('title',info[0])
-	.attr('alt',info[0]);
-}
 var changeImage = function(){
 	var index = (Math.floor(Math.random() * images.length));
-	imageinfo(index);
-}
-
-var slideShow = function(){
-	var idx = 0;
-	var interval = setInterval(function(){
-		if(idx==8){
-			idx=0;
-		}
-		imageinfo(idx);
-		idx++;
-	},1000);
+	var info = images[index].split(":");
+	console.log(info);
+	$('.image-viewer div img').attr('src','images/'+info[1]).attr('title',info[0]);
 }
 $(function(){
 	$('#btn-change').click(function(){
 		changeImage();
-	});
-})
-$(function(){
-	$('#btn-slideshow').click(function(){
-		console.log($(this));
-		$(this).text("슬라이드쇼 중지");
-		slideShow();
-		if($(this).text()=="슬라이드쇼 중지"){
-			clearInterval(interval);
-			$(this).text("슬라이드쇼 시작");
-		}
 	});
 })
 </script>

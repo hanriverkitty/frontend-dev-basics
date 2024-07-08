@@ -4,33 +4,32 @@
 <meta charset="utf-8">
 <title>리스트를 이용한 메뉴 만들기</title>
 <link rel="stylesheet" type="text/css" href="/ch05/css/tabbox.css"></link>
-<script type="text/javascript" src="./jquery/jquery-3.7.1.js"></script>
 <script>
-	
-</script>
-<script>
-	liSelected = null;
-	function onTabClicked(li){
-		if(liSelected != null){
-			liSelected.className="";
-		}
-		li.className = "selected";
-		liSelected = li;
-		console.log("tab clicked:",li);
-	}
+function onTabClicked(){
+	var liSelected = document.querySelector("li.selected");
+	liSelected && (liSelected.className = '');
+	this.className = 'selected';
+	console.log(this);
+}
 window.addEventListener("load",function(){
-	 var divTableBox = document.getElementByClassName('tab-box')[0];
+	 var divTableBox = document.getElementsByClassName('tab-box')[0];
+	 var ul = divTableBox.childNodes[1];
+	 var lis = ul.getElementsByTagName("li");
+	 
+	 Array.prototype.forEach.call(lis,function(li){
+		 li.addEventListener('click',onTabClicked);
+	 })
 })
 </script>
 </head>
 <body>
 <div class="tab-box">
     <ul>
-        <li onclick="onTabClicked(this)">메뉴1</li>
-        <li onclick="onTabClicked(this)">메뉴2</li>
-        <li onclick="onTabClicked(this)">메뉴3</li>
-        <li onclick="onTabClicked(this)">메뉴4</li>
-        <li onclick="onTabClicked(this)">메뉴5</li>
+        <li>메뉴1</li>
+        <li>메뉴2</li>
+        <li>메뉴3</li>
+        <li>메뉴4</li>
+        <li>메뉴5</li>
     </ul>
     <div>
     	탭뷰입니다.
