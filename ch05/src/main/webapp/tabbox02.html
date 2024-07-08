@@ -4,7 +4,10 @@
 <meta charset="utf-8">
 <title>리스트를 이용한 메뉴 만들기</title>
 <link rel="stylesheet" type="text/css" href="/ch05/css/tabbox.css"></link>
-
+<script type="text/javascript" src="./jquery/jquery-3.7.1.js"></script>
+<script>
+	
+</script>
 <script>
 	liSelected = null;
 	function onTabClicked(li){
@@ -15,6 +18,9 @@
 		liSelected = li;
 		console.log("tab clicked:",li);
 	}
+window.addEventListener("load",function(){
+	 var divTableBox = document.getElementByClassName('tab-box')[0];
+})
 </script>
 </head>
 <body>

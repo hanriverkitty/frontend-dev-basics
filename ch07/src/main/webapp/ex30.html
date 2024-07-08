@@ -2,10 +2,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script type="text/javascript" src="./jquery/jquery-3.6.0.js"></script>
+<script type="text/javascript" src="./jquery/jquery-3.7.1.js"></script>
 <script type="text/javascript">
 $(function() {
 	setTimeout(function(){
+		// html 은 p 태그 안에 h2 태그를 생성한다
+		$('p').replaceWith("<h2>변경후</h2>");
 	}, 2000);
 });  
 </script>
