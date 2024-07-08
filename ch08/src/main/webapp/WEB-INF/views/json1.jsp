@@ -43,9 +43,6 @@ $(function(){
 	<h1>Ajax Test: JSON Format Data: $.ajax() 함수 사용하기</h1>
 	<button>데이터 가져오기</button>
 	<div id="data">
-		<h3></h3>
-		<h4></h4>
-		<h5></h5>
 	</div>
 </body>
 </html>
