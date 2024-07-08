@@ -1,6 +1,7 @@
 package ch08.controller.api;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -37,12 +38,21 @@ public class ApiController {
 	
 	@ResponseBody
 	@RequestMapping(value="/post1", method=RequestMethod.POST)
-	public JsonResult post1() {
-		GuestbookVo vo = new GuestbookVo();
+	public JsonResult post1(GuestbookVo vo) {
+		// service -> repository : db insert 성공한 후,
 		vo.setNo(1L);
-		vo.setName("둘리");
-		vo.setContents("호이~");
-
+		vo.setPassword("");
+		vo.setDate("2024-07-08 15:08:20");
+		return JsonResult.success(vo);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/post2", method=RequestMethod.POST)
+	public JsonResult post2(@RequestBody GuestbookVo vo) {
+		// service -> repository : db insert 성공한 후,
+		vo.setNo(1L);
+		vo.setPassword("");
+		vo.setDate("2024-07-08 15:08:20");
 		return JsonResult.success(vo);
 	}
 }
